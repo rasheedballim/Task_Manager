@@ -1,13 +1,17 @@
 import os
 
+# Text file where tasks are stored
 FILEPATH = "list.txt"
+
+# Read list from text file
 def read_list(filepath=FILEPATH):
     """
     reads text line by line from a txt file and stores it in list_local
     :param filepath: the file path of the txt file data is being read from
     :return: returns the list which contains each line with an index
     """
-    if os.path.exists('list.txt') == False:
+    # check if text file exists first, else one is created
+    if not os.path.exists(FILEPATH):
         open('list.txt', 'w')
         pass
     file_local = open(filepath, 'r')
@@ -15,6 +19,7 @@ def read_list(filepath=FILEPATH):
     file_local.close()
     return list_local
 
+# Write new tasks to file
 def write_to_file(list_name,filepath=FILEPATH):
     """
     writes text from a list to a file, each index goes on a seperate line
